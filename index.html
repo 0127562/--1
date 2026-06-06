@@ -304,6 +304,8 @@ async function loadChapter(book,chapter){
 
         reader.textContent=text;
 
+        reader.scrollTop = 0;
+
         localStorage.setItem(
             "lastChapter",
             chapter
@@ -364,6 +366,9 @@ if(lastBook){
         sidebar.classList.toggle("show");
     });
     
+    title.textContent =
+    `Книга ${book} — Глава ${chapter}`;
+
     </script>
 
 </body>
