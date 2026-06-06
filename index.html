@@ -23,6 +23,45 @@
     font-family:Segoe UI,sans-serif;
 }
 
+#chapterNavigation{
+
+display:none;
+
+justify-content:space-between;
+
+gap:15px;
+
+padding:20px;
+
+background:var(--panel);
+}
+
+#chapterNavigation button{
+
+flex:1;
+
+border:none;
+
+background:var(--panel2);
+
+color:white;
+
+padding:14px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-size:16px;
+
+transition:.2s;
+}
+
+#chapterNavigation button:hover{
+
+background:var(--accent);
+}
+
 body{
     background:var(--bg);
     color:var(--text);
@@ -228,6 +267,18 @@ body{
 Оберіть книгу та главу зліва.
 </div>
 
+<div id="chapterNavigation">
+
+    <button id="prevChapterBtn">
+    ⬅ Попередня глава
+    </button>
+    
+    <button id="nextChapterBtn">
+    Наступна глава ➡
+    </button>
+    
+    </div>
+
 </div>
 
 </div>
@@ -243,6 +294,17 @@ const booksDiv = document.getElementById("books");
 const chaptersDiv = document.getElementById("chapters");
 const reader = document.getElementById("reader");
 const title = document.getElementById("title");
+
+const chapterNavigation =
+document.getElementById("chapterNavigation");
+
+const prevChapterBtn =
+document.getElementById("prevChapterBtn");
+
+const nextChapterBtn =
+document.getElementById("nextChapterBtn");
+
+let currentChapter = null;
 
 for(let i=1;i<=BOOK_COUNT;i++){
 
@@ -302,9 +364,32 @@ async function loadChapter(book,chapter){
         title.textContent=
         `Книга ${book} — Глава ${chapter}`;
 
-        reader.textContent=text;
+        currentBook = book;
+        currentChapter = chapter;
+
+        chapterNavigation.style.display = "flex";
+
+        reader.textContent = text;
 
         reader.scrollTop = 0;
+
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "auto"
+        });
+
+        setTimeout(() => {
+
+        document.getElementById("header")
+        .scrollIntoView({
+            block: "start"
+        });
+
+        }, 50);
 
         localStorage.setItem(
             "lastChapter",
@@ -332,6 +417,27 @@ async function loadChapter(book,chapter){
     }
 }
 
+prevChapterBtn.onclick = () => {
+
+if(currentChapter > 1){
+
+    loadChapter(
+        currentBook,
+        currentChapter - 1
+    );
+}
+};
+
+nextChapterBtn.onclick = () => {
+
+if(currentChapter < CHAPTERS_PER_BOOK){
+
+    loadChapter(
+        currentBook,
+        currentChapter + 1
+    );
+}
+};
 const lastBook=
 Number(localStorage.getItem("lastBook"));
 
@@ -357,19 +463,16 @@ if(lastBook){
 
     const mobileBtn =
     document.getElementById("mobileMenuBtn");
-    
+
     const sidebar =
     document.getElementById("sidebar");
-    
+
     mobileBtn.addEventListener("click", () => {
-    
+
         sidebar.classList.toggle("show");
     });
     
-    title.textContent =
-    `Книга ${book} — Глава ${chapter}`;
-
-    </script>
+</script>
 
 </body>
 </html>
