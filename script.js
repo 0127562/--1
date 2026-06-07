@@ -151,8 +151,16 @@ async function loadChapter(
         chapterNavigation.style.display =
         "flex";
 
-        reader.textContent =
-        text;
+        reader.style.opacity = 0;
+
+        setTimeout(() => {
+        
+            reader.textContent =
+            text;
+        
+            reader.style.opacity = 1;
+        
+        }, 250);
 
         reader.scrollTop = 0;
 
@@ -254,6 +262,74 @@ nextChapterBtn.onclick =
 };
 
 // =========================
+// Пошук Книг
+// =========================
+
+const searchInput =
+document.getElementById(
+    "searchInput"
+);
+
+searchInput.addEventListener(
+    "input",
+    () => {
+
+        const value =
+        searchInput.value
+        .toLowerCase();
+
+        document
+        .querySelectorAll(
+            ".chapter-btn"
+        )
+        .forEach(btn => {
+
+            btn.style.display =
+            btn.textContent
+            .toLowerCase()
+            .includes(value)
+
+            ? "block"
+            : "none";
+        });
+    }
+);
+
+// =========================
+// Змінити Тему
+// =========================
+
+const themeSelect =
+document.getElementById(
+    "themeSelect"
+);
+
+themeSelect.onchange = () => {
+
+    document.body.dataset.theme =
+    themeSelect.value;
+
+    localStorage.setItem(
+        "theme",
+        themeSelect.value
+    );
+};
+
+const savedTheme =
+localStorage.getItem(
+    "theme"
+);
+
+if(savedTheme){
+
+    document.body.dataset.theme =
+    savedTheme;
+
+    themeSelect.value =
+    savedTheme;
+}
+
+// =========================
 // Відкрити меню
 // =========================
 
@@ -297,3 +373,47 @@ if(lastBook){
         );
     }
 }
+
+const music =
+document.getElementById(
+    "bgMusic"
+);
+
+const musicBtn =
+document.getElementById(
+    "musicBtn"
+);
+
+musicBtn.onclick = () => {
+
+    if(music.paused){
+
+        music.play();
+
+        musicBtn.textContent =
+        "🔇 Вимкнути";
+    }
+    else{
+
+        music.pause();
+
+        musicBtn.textContent =
+        "🎵 Музика";
+    }
+};
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(() => {
+
+            document
+            .getElementById(
+                "loader"
+            )
+            .remove();
+
+        }, 1200);
+    }
+);
