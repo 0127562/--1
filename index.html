@@ -4,12 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Новела КНК-1</title>
+<title>Новела Точка неповернення</title>
 
 <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
+
+
+    
+<div id="loader">
+    <div class="spinner"></div>
+    
+    <div>
+    Завантаження архіву...
+    </div>
+    
+    </div>
 
 <canvas id="spaceCanvas"></canvas>    
 
@@ -20,6 +31,44 @@
 <div class="logo">
 КНК-1 📘
 </div>
+
+<input
+id="searchInput"
+placeholder="Пошук..."
+>
+<button id="musicBtn">
+    🎵 Музика
+    </button>
+    
+    <audio
+    id="bgMusic"
+    loop>
+    
+    <source
+    src="music.mp3"
+    type="audio/mpeg">
+    
+    </audio>
+
+<select id="themeSelect">
+
+    <option value="space">
+    Космос
+    </option>
+    
+    <option value="dark">
+    Темна
+    </option>
+    
+    <option value="light">
+    Світла
+    </option>
+    
+    <option value="neon">
+    Неон
+    </option>
+    
+    </select>
 
 <div class="section">
 
@@ -42,6 +91,9 @@
 <div id="content">
 
 <div id="header">
+<div id="progressContainer">
+    <div id="progressBar"></div>
+</div>
 
 <div id="title">
 Оберіть книгу та главу
