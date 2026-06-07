@@ -98,7 +98,7 @@ body{
     padding:50px;
 
     margin:30px;
-
+ 
     border-radius:24px;
 
     background:
@@ -155,6 +155,67 @@ body{
     transition:.2s;
 }
 
+#progressContainer{
+
+    height:6px;
+
+    width:100%;
+
+    background:#222;
+}
+
+#progressBar{
+
+    height:100%;
+
+    width:0%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4da6ff,
+            #8a5cff
+        );
+
+    transition:.2s;
+    }
+
+    body[data-theme="dark"]{
+
+        --bg:#111;
+    }
+
+    body[data-theme="light"]{
+
+        --bg:#444444;
+
+        --text:#eeeeee;
+    }
+
+    body[data-theme="neon"]{
+
+        --bg:#050505;
+
+        --accent:#00ffcc;
+    }
+
+    #searchInput{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+    background:#222;
+
+    color:white;
+}
+
 #chapterNavigation button:hover{
     background:var(--accent);
 }
@@ -185,7 +246,57 @@ body{
     height:300px;
 }
 
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#050505;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+    z-index:99999;
+}
+
+.spinner{
+
+    width:70px;
+
+    height:70px;
+
+    border:6px solid #333;
+
+    border-top-color:#4da6ff;
+
+    border-radius:50%;
+
+    animation:
+        spin 1s linear infinite;
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
 #reader{
+
+    #reader{
+
+        transition:
+            opacity .25s ease;
+    }
 
     flex:1;
 
@@ -197,7 +308,7 @@ body{
 
     border-radius:24px;
 
-    background:#3a3a3a;
+    background:#3a3a3a8f;
 
     box-shadow:
         0 0 40px rgba(0,0,0,.4);
