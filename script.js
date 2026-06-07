@@ -2,7 +2,7 @@
 // Налаштування
 // =========================
 
-const BOOK_COUNT = 2;
+const BOOK_COUNT = 3;
 const CHAPTERS_PER_BOOK = 16;
 
 // =========================
