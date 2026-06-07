@@ -2,8 +2,8 @@
 // Налаштування
 // =========================
 
-const BOOK_COUNT = 5;
-const CHAPTERS_PER_BOOK = 15;
+const BOOK_COUNT = 2;
+const CHAPTERS_PER_BOOK = 16;
 
 // =========================
 // Змінні
