@@ -61,6 +61,24 @@ class Particle{
 
     update(){
 
+        const dx =
+        mouse.x - this.x;
+            
+        const dy =
+        mouse.y - this.y;
+            
+        const dist =
+        Math.sqrt(
+            dx * dx +
+            dy * dy
+        );
+        
+        if(dist < 150){
+        
+            this.x -= dx * 0.002;
+            this.y -= dy * 0.002;
+        }
+
         this.x += this.speedX;
         this.y += this.speedY;
 
@@ -102,6 +120,21 @@ for(let i=0;i<120;i++){
         new Particle()
     );
 }
+
+let mouse = {
+
+    x:0,
+    y:0
+};
+
+window.addEventListener(
+    "mousemove",
+    e => {
+
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    }
+);
 
 function animate(){
 
