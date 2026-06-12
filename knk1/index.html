@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Новела Точка неповернення</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+
+    
+<div id="loader">
+    <div class="spinner"></div>
+    
+    <div>
+    Завантаження архіву...
+    </div>
+    
+    </div>
+
+<canvas id="spaceCanvas"></canvas>    
+
+<button id="mobileMenuBtn">☰ Меню</button>
+
+<div id="sidebar">
+
+<div class="logo">
+КНК-1 📘
+</div>
+
+<input
+id="searchInput"
+placeholder="Пошук..."
+>
+<button id="musicBtn">
+    🎵 Музика
+    </button>
+    
+    <audio
+    id="bgMusic"
+    loop>
+    
+    <source
+    src="music.mp3"
+    type="audio/mpeg">
+    
+    </audio>
+
+<select id="themeSelect">
+
+    <option value="space">
+    Космос
+    </option>
+    
+    <option value="dark">
+    Темна
+    </option>
+    
+    <option value="light">
+    Світла
+    </option>
+    
+    <option value="neon">
+    Неон
+    </option>
+    
+    </select>
+
+<div class="section">
+
+<h3>Книги</h3>
+
+<div id="books"></div>
+
+</div>
+
+<div class="section">
+
+<h3>Глави</h3>
+
+<div id="chapters"></div>
+
+</div>
+
+</div>
+
+<div id="content">
+
+<div id="header">
+<div id="progressContainer">
+    <div id="progressBar"></div>
+</div>
+
+<div id="title">
+Оберіть книгу та главу
+</div>
+
+</div>
+
+<div id="reader">
+
+<div class="placeholder">
+Ласкаво просимо до архівів КНК-1.<br><br>
+Оберіть книгу та главу зліва.
+</div>
+
+<div id="chapterNavigation">
+
+<button id="prevChapterBtn">
+⬅ Попередня глава
+</button>
+
+<button id="nextChapterBtn">
+Наступна глава ➡
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script src="animations.js"></script>
+<script src="space.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
