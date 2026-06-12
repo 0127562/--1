@@ -6,7 +6,7 @@ const novels = [
     },
     {
         folder:"knk2",
-        cover:"covers/knk1.jpg"
+        cover:"covers/knk2.jpg"
     },
 
 
