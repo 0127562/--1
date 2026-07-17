@@ -1,0 +1,381 @@
+```html
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <!-- ===================================================== -->
+    <!-- KNK ARCHIVE CONSOLE                                   -->
+    <!-- Universe Management System                            -->
+    <!-- Version 1.0                                           -->
+    <!-- ===================================================== -->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>KNK Archive Console</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Точка Неповернення - KNK Archive Console. Локальна енциклопедія всесвіту.">
+
+    <meta name="author" content="Олександр Гарбарець">
+
+    <meta name="theme-color" content="#000000">
+
+    <link rel="icon" href="assets/icons/favicon.ico">
+
+    <!-- ================= CSS ================= -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/terminal.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/scrollbar.css">
+
+</head>
+
+<body>
+
+    <!-- ===================================================== -->
+    <!-- PRELOADER                                              -->
+    <!-- ===================================================== -->
+
+    <div id="bootScreen">
+
+        <div class="bootContainer">
+
+            <div class="bootLogo">
+
+                KNK ARCHIVE
+
+            </div>
+
+            <div class="bootVersion">
+
+                Universe Management System
+                <br>
+                Version 1.0
+
+            </div>
+
+            <div id="bootOutput">
+
+            </div>
+
+            <div class="bootProgress">
+
+                <div id="bootProgressBar"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- MAIN APPLICATION                                      -->
+    <!-- ===================================================== -->
+
+    <div id="application">
+
+        <!-- ================================================ -->
+        <!-- HEADER                                            -->
+        <!-- ================================================ -->
+
+        <header id="topBar">
+
+            <div id="windowTitle">
+
+                KNK ARCHIVE CONSOLE
+
+            </div>
+
+            <div id="windowStatus">
+
+                READY
+
+            </div>
+
+        </header>
+
+        <!-- ================================================ -->
+        <!-- TERMINAL                                           -->
+        <!-- ================================================ -->
+
+        <main id="terminalWindow">
+
+            <section id="terminalOutput">
+
+            </section>
+
+            <section id="terminalInputContainer">
+
+                <span class="prompt">
+
+                    >
+
+                </span>
+
+                <input
+                    id="terminalInput"
+                    type="text"
+                    autocomplete="off"
+                    spellcheck="false"
+                    autofocus>
+
+                <span id="cursor">
+
+                    █
+
+                </span>
+
+            </section>
+
+        </main>
+
+        <!-- ================================================ -->
+        <!-- FOOTER                                             -->
+        <!-- ================================================ -->
+
+        <footer id="statusBar">
+
+            <div id="leftStatus">
+
+                KNK OS
+
+            </div>
+
+            <div id="middleStatus">
+
+                Universe Loaded
+
+            </div>
+
+            <div id="rightStatus">
+
+                v1.0
+
+            </div>
+
+        </footer>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- NOTIFICATION LAYER                                    -->
+    <!-- ===================================================== -->
+
+    <div id="notificationLayer">
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- MODAL WINDOWS                                         -->
+    <!-- ===================================================== -->
+
+    <div id="modalLayer">
+
+        <div id="modalWindow">
+
+            <div id="modalHeader">
+
+                Information
+
+            </div>
+
+            <div id="modalBody">
+
+            </div>
+
+            <div id="modalFooter">
+
+                <button id="modalClose">
+
+                    Close
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- CONTEXT MENU                                          -->
+    <!-- ===================================================== -->
+
+    <div id="contextMenu">
+
+        <button>
+
+            Copy
+
+        </button>
+
+        <button>
+
+            Paste
+
+        </button>
+
+        <button>
+
+            Clear
+
+        </button>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- SEARCH OVERLAY                                        -->
+    <!-- ===================================================== -->
+
+    <div id="searchOverlay">
+
+        <div id="searchWindow">
+
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="Search...">
+
+            <div id="searchResults">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- CHARACTER VIEWER                                      -->
+    <!-- ===================================================== -->
+
+    <div id="characterViewer">
+
+        <div class="viewerHeader">
+
+            Character
+
+        </div>
+
+        <div class="viewerContent">
+
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- BOOK VIEWER                                           -->
+    <!-- ===================================================== -->
+
+    <div id="bookViewer">
+
+        <div class="viewerHeader">
+
+            Book
+
+        </div>
+
+        <div class="viewerContent">
+
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- TIMELINE VIEWER                                       -->
+    <!-- ===================================================== -->
+
+    <div id="timelineViewer">
+
+        <div class="viewerHeader">
+
+            Timeline
+
+        </div>
+
+        <div class="viewerContent">
+
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- IMAGE PREVIEW                                         -->
+    <!-- ===================================================== -->
+
+    <div id="imagePreview">
+
+        <img
+            id="previewImage"
+            src=""
+            alt="Preview">
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- AUDIO                                                  -->
+    <!-- ===================================================== -->
+
+    <audio
+        id="keySound"
+        preload="auto">
+
+        <source
+            src="assets/sounds/key.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+    <audio
+        id="enterSound"
+        preload="auto">
+
+        <source
+            src="assets/sounds/enter.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+    <audio
+        id="bootSound"
+        preload="auto">
+
+        <source
+            src="assets/sounds/boot.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+    <!-- ===================================================== -->
+    <!-- JAVASCRIPT                                            -->
+    <!-- ===================================================== -->
+
+    <script src="js/utils.js"></script>
+
+    <script src="js/history.js"></script>
+
+    <script src="js/autocomplete.js"></script>
+
+    <script src="js/filesystem.js"></script>
+
+    <script src="js/search.js"></script>
+
+    <script src="js/parser.js"></script>
+
+    <script src="js/loader.js"></script>
+
+    <script src="js/renderer.js"></script>
+
+    <script src="js/commands.js"></script>
+
+    <script src="js/terminal.js"></script>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
+```
