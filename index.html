@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Точка Неповернення</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,Arial,sans-serif;
+}
+
+body{
+    background:
+        radial-gradient(circle at top,#273c75,#10131b 45%,#050608 100%);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    color:white;
+}
+
+/* Фонове світіння */
+body::before{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    border-radius:50%;
+    background:#4d7cff22;
+    filter:blur(120px);
+    animation:pulse 5s infinite alternate;
+}
+
+@keyframes pulse{
+    from{transform:scale(1);}
+    to{transform:scale(1.2);}
+}
+
+.container{
+    position:relative;
+    width:500px;
+    max-width:90%;
+    background:rgba(15,18,25,.85);
+    border:1px solid #3d6bff55;
+    border-radius:20px;
+    padding:45px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 30px #000;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:10px;
+    color:#6fa8ff;
+    text-shadow:0 0 20px #4d7cff;
+}
+
+.subtitle{
+    color:#cfd8dc;
+    margin-bottom:40px;
+    font-size:18px;
+}
+
+button{
+    width:100%;
+    padding:18px;
+    margin:12px 0;
+    font-size:20px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    color:white;
+    background:#2b4cff;
+    transition:.25s;
+}
+
+button:hover{
+    transform:scale(1.03);
+    background:#4d7cff;
+    box-shadow:0 0 20px #4d7cff;
+}
+
+.footer{
+    margin-top:35px;
+    color:#9ca8b4;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Точка Неповернення</h1>
+
+<div class="subtitle">
+Оберіть мову
+</div>
+
+<button onclick="selectLanguage('ua')">
+🇺🇦 Українська
+</button>
+
+<button onclick="selectLanguage('en')">
+🇬🇧 English
+</button>
+
+<button onclick="selectLanguage('ru')">
+🇷🇺 Русский
+</button>
+
+<div class="footer">
+© Точка Неповернення
+</div>
+
+</div>
+
+<script>
+function selectLanguage(lang){
+
+    // Запам'ятовуємо вибір
+    localStorage.setItem("language", lang);
+
+    // Переходимо до потрібної папки
+    window.location.href = lang + "/index.html";
+
+}
+</script>
+
+</body>
+</html>
